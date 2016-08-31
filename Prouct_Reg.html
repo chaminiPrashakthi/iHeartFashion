@@ -1,0 +1,376 @@
+<!--signup-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Products</title>
+        <link rel="shortcut icon" href="imgs/ico.png">
+        <link rel="stylesheet" href="css/pageformat.css" /> 
+        <link rel="stylesheet" href="css/fontformat.css" />
+        <link rel="stylesheet" type="text/css" href="css/base.css" /> <!-- button -->
+        <link rel="stylesheet" type="text/css" href="css/buttons.css" /> <!-- button -->
+        <link rel="stylesheet" href="css/set2.css"> <!-- text field -->
+        <link href="css/jquery.filer.css" type="text/css" rel="stylesheet" />
+        <link href="css/themes/jquery.filer-dragdropbox-theme.css" type="text/css" rel="stylesheet" />
+
+        <!--jQuery-->
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript" src="js/jquery.filer.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#input1').filer();
+
+                $('.file_input').filer({
+                    showThumbs: true,
+                    templates: {
+                        box: '<ul class="jFiler-item-list"></ul>',
+                        item: '<li class="jFiler-item">\
+                            <div class="jFiler-item-container">\
+                                <div class="jFiler-item-inner">\
+                                    <div class="jFiler-item-thumb">\
+                                        <div class="jFiler-item-status"></div>\
+                                        <div class="jFiler-item-info">\
+                                            <span class="jFiler-item-title"><b title="{{fi-name}}">{{fi-name | limitTo: 25}}</b></span>\
+                                        </div>\
+                                        {{fi-image}}\
+                                    </div>\
+                                    <div class="jFiler-item-assets jFiler-row">\
+                                        <ul class="list-inline pull-left">\
+                                            <li><span class="jFiler-item-others">{{fi-icon}} {{fi-size2}}</span></li>\
+                                        </ul>\
+                                        <ul class="list-inline pull-right">\
+                                            <li><a class="icon-jfi-trash jFiler-item-trash-action"></a></li>\
+                                        </ul>\
+                                    </div>\
+                                </div>\
+                            </div>\
+                        </li>',
+                        itemAppend: '<li class="jFiler-item">\
+                            <div class="jFiler-item-container">\
+                                <div class="jFiler-item-inner">\
+                                    <div class="jFiler-item-thumb">\
+                                        <div class="jFiler-item-status"></div>\
+                                        <div class="jFiler-item-info">\
+                                            <span class="jFiler-item-title"><b title="{{fi-name}}">{{fi-name | limitTo: 25}}</b></span>\
+                                        </div>\
+                                        {{fi-image}}\
+                                    </div>\
+                                    <div class="jFiler-item-assets jFiler-row">\
+                                        <ul class="list-inline pull-left">\
+                                            <span class="jFiler-item-others">{{fi-icon}} {{fi-size2}}</span>\
+                                        </ul>\
+                                        <ul class="list-inline pull-right">\
+                                            <li><a class="icon-jfi-trash jFiler-item-trash-action"></a></li>\
+                                        </ul>\
+                                    </div>\
+                                </div>\
+                            </div>\
+                        </li>',
+                        progressBar: '<div class="bar"></div>',
+                        itemAppendToEnd: true,
+                        removeConfirmation: true,
+                        _selectors: {
+                            list: '.jFiler-item-list',
+                            item: '.jFiler-item',
+                            progressBar: '.bar',
+                            remove: '.jFiler-item-trash-action',
+                        }
+                    },
+                    addMore: true,
+                    files: [{
+                            name: "appended_file.jpg",
+                            size: 5453,
+                            type: "image/jpg",
+                            file: "http://dummyimage.com/158x113/f9f9f9/191a1a.jpg",
+                        }, {
+                            name: "appended_file_2.png",
+                            size: 9503,
+                            type: "image/png",
+                            file: "http://dummyimage.com/158x113/f9f9f9/191a1a.png",
+                        }]
+                });
+
+                $('#input2').filer({
+                    limit: null,
+                    maxSize: null,
+                    extensions: null,
+                    changeInput: '<div class="jFiler-input-dragDrop"><div class="jFiler-input-inner"><div class="jFiler-input-icon"><i class="icon-jfi-cloud-up-o"></i></div><div class="jFiler-input-text"><h3>Drag&Drop files here</h3> <span style="display:inline-block; margin: 15px 0">or</span></div><a class="jFiler-input-choose-btn blue">Browse Files</a></div></div>',
+                    showThumbs: true,
+                    appendTo: null,
+                    theme: "dragdropbox",
+                    templates: {
+                        box: '<ul class="jFiler-item-list"></ul>',
+                        item: '<li class="jFiler-item">\
+                            <div class="jFiler-item-container">\
+                                <div class="jFiler-item-inner">\
+                                    <div class="jFiler-item-thumb">\
+                                        <div class="jFiler-item-status"></div>\
+                                        <div class="jFiler-item-info">\
+                                            <span class="jFiler-item-title"><b title="{{fi-name}}">{{fi-name | limitTo: 25}}</b></span>\
+                                        </div>\
+                                        {{fi-image}}\
+                                    </div>\
+                                    <div class="jFiler-item-assets jFiler-row">\
+                                        <ul class="list-inline pull-left">\
+                                            <li>{{fi-progressBar}}</li>\
+                                        </ul>\
+                                        <ul class="list-inline pull-right">\
+                                            <li><a class="icon-jfi-trash jFiler-item-trash-action"></a></li>\
+                                        </ul>\
+                                    </div>\
+                                </div>\
+                            </div>\
+                        </li>',
+                        itemAppend: '<li class="jFiler-item">\
+                            <div class="jFiler-item-container">\
+                                <div class="jFiler-item-inner">\
+                                    <div class="jFiler-item-thumb">\
+                                        <div class="jFiler-item-status"></div>\
+                                        <div class="jFiler-item-info">\
+                                            <span class="jFiler-item-title"><b title="{{fi-name}}">{{fi-name | limitTo: 25}}</b></span>\
+                                        </div>\
+                                        {{fi-image}}\
+                                    </div>\
+                                    <div class="jFiler-item-assets jFiler-row">\
+                                        <ul class="list-inline pull-left">\
+                                            <span class="jFiler-item-others">{{fi-icon}} {{fi-size2}}</span>\
+                                        </ul>\
+                                        <ul class="list-inline pull-right">\
+                                            <li><a class="icon-jfi-trash jFiler-item-trash-action"></a></li>\
+                                        </ul>\
+                                    </div>\
+                                </div>\
+                            </div>\
+                        </li>',
+                        progressBar: '<div class="bar"></div>',
+                        itemAppendToEnd: false,
+                        removeConfirmation: false,
+                        _selectors: {
+                            list: '.jFiler-item-list',
+                            item: '.jFiler-item',
+                            progressBar: '.bar',
+                            remove: '.jFiler-item-trash-action',
+                        }
+                    },
+                    uploadFile: {
+                        url: "./upload.php",
+                        data: {},
+                        type: 'POST',
+                        enctype: 'multipart/form-data',
+                        beforeSend: function () {
+                        },
+                        success: function (data, el) {
+                            var parent = el.find(".jFiler-jProgressBar").parent();
+                            el.find(".jFiler-jProgressBar").fadeOut("slow", function () {
+                                $("<div class=\"jFiler-item-others text-success\"><i class=\"icon-jfi-check-circle\"></i> Success</div>").hide().appendTo(parent).fadeIn("slow");
+                            });
+                        },
+                        error: function (el) {
+                            var parent = el.find(".jFiler-jProgressBar").parent();
+                            el.find(".jFiler-jProgressBar").fadeOut("slow", function () {
+                                $("<div class=\"jFiler-item-others text-error\"><i class=\"icon-jfi-minus-circle\"></i> Error</div>").hide().appendTo(parent).fadeIn("slow");
+                            });
+                        },
+                        statusCode: {},
+                        onProgress: function () {
+                        },
+                    },
+                    dragDrop: {
+                        dragEnter: function () {
+                        },
+                        dragLeave: function () {
+                        },
+                        drop: function () {
+                        },
+                    },
+                    addMore: true,
+                    clipBoardPaste: true,
+                    excludeName: null,
+                    beforeShow: function () {
+                        return true
+                    },
+                    onSelect: function () {
+                    },
+                    afterShow: function () {
+                    },
+                    onRemove: function () {
+                    },
+                    onEmpty: function () {
+                    },
+                    captions: {
+                        button: "Choose Files",
+                        feedback: "Choose files To Upload",
+                        feedback2: "files were chosen",
+                        drop: "Drop file here to Upload",
+                        removeConfirmation: "Are you sure you want to remove this file?",
+                        errors: {
+                            filesLimit: "Only {{fi-limit}} files are allowed to be uploaded.",
+                            filesType: "Only Images are allowed to be uploaded.",
+                            filesSize: "{{fi-name}} is too large! Please upload file up to {{fi-maxSize}} MB.",
+                            filesSizeAll: "Files you've choosed are too large! Please upload files up to {{fi-maxSize}} MB."
+                        }
+                    }
+                });
+            });
+        </script>
+
+        <style>
+            .file_input{
+                display: inline-block;
+                padding: 10px 16px;
+                outline: none;
+                cursor: pointer;
+                text-decoration: none;
+                text-align: center;
+                white-space: nowrap;
+                font-family: sans-serif;
+                font-size: 11px;
+                font-weight: bold;
+                border-radius: 3px;
+                color: #008BFF;
+                border: 1px solid #008BFF;
+                vertical-align: middle;
+                background-color: #fff;
+                margin-bottom: 10px;
+                box-shadow: 0px 1px 5px rgba(0,0,0,0.05);
+                -webkit-transition: all 0.2s;
+                -moz-transition: all 0.2s;
+                transition: all 0.2s;
+            }
+            .file_input:hover,
+            .file_input:active {
+                background: #008BFF;
+                color: #fff;
+            }
+        </style>
+    </head>
+    <script type="text/javascript">
+        function clear() {
+            document.getElementById("input-25").value = "";
+            document.getElementById("input-26").value = "";
+            document.getElementById("input-27").value = "";
+            document.getElementById("input-28").value = "";
+            document.getElementById("input-29").value = "";
+            document.getElementById("input-30").value = "";
+            document.getElementById("input-31").value = "";
+            document.getElementById("input-32").value = "";
+            document.getElementById("input-33").value = "";
+        }
+    </script>
+    <body onload="clear()">
+        <div style="padding-left: 10%;">
+            <img src="imgs/Capture2.JPG" width="389" height="100" alt="Capture2"/>
+        </div>
+        <br>
+
+        <div class="alignc" style="padding-left: 5%;">
+            <form method="POST" action="Product_Reg.php" enctype="multipart/form-data">
+                <table style="width: 80%;">
+                    <tr>
+                        <td colspan="2">
+                            <div class="mainHeading">Product Registration</div>
+                        </td>
+                    </tr>
+                    <tr class="alignc">
+                        <td colspan="2" >
+                            <span class="input input--manami">
+                                <input class="input__field input__field--manami" type="text" id="input-25" name = "name"/>
+                                <label class="input__label input__label--manami" for="input-25">
+                                    <span class="input__label-content input__label-content--manami">Name</span>
+                                </label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="alignc">
+                        <td colspan="2" >
+                            <span class="input input--manami">
+                                <input class="input__field input__field--manami" type="text" id="input-26" name = "colour"/>
+                                <label class="input__label input__label--manami" for="input-26">
+                                    <span class="input__label-content input__label-content--manami">Colour</span>
+                                </label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="alignc">
+                        <td colspan="2" >
+                            <span class="input input--manami">
+                                <input class="input__field input__field--manami" type="text" id="input-27" name = "quantity"/>
+                                <label class="input__label input__label--manami" for="input-27">
+                                    <span class="input__label-content input__label-content--manami">Quantity</span>
+                                </label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="alignc">
+                        <td colspan="2" >
+                            <span class="input input--manami">
+                                <input class="input__field input__field--manami" type="text" id="input-28" name = "price"/>
+                                <label class="input__label input__label--manami" for="input-28">
+                                    <span class="input__label-content input__label-content--manami">Unit price</span>
+                                </label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="alignc">
+                        <td colspan="2" >
+                            <span class="input input--manami">
+                                <input class="input__field input__field--manami" type="text" id="input-29" name = "occasion"/>
+                                <label class="input__label input__label--manami" for="input-29">
+                                    <span class="input__label-content input__label-content--manami">Occasion</span>
+                                </label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="alignc">
+                        <td colspan="2" >
+                            <span class="input input--manami">
+                                <input class="input__field input__field--manami" type="text" id="input-30" name = "material"/>
+                                <label class="input__label input__label--manami" for="input-30">
+                                    <span class="input__label-content input__label-content--manami">Material</span>
+                                </label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="alignc">
+                        <td colspan="2" >
+                            <span class="input input--manami">
+                                <input class="input__field input__field--manami" type="text" id="input-33" name = "size"/>
+                                <label class="input__label input__label--manami" for="input-33">
+                                    <span class="input__label-content input__label-content--manami">Size</span>
+                                </label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="alignc">
+                        <td colspan="2">
+                            <label class="input__label--manamigen input__field2" for="input-34">
+                                <span class="">Type</span>
+                            </label>
+                            <span class="inputradio radio-input">
+                                Shoes<input type="radio" name="type" value="Shoes" style="margin-right: 60px;" id="radiof" checked>
+                                Hand Bags<input type="radio" name="type" value="Hand_Bags" style="margin-right: -40px;text-align: right;" id="radiom">                                      
+                            </span><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">
+                            <div class="box bg-1" style="padding-left: 52%;">
+                                <button type="submit" class="button button--nina button--text-thick button--text-upper button--size-s" data-text="Register">
+                                    <span>R</span><span>e</span><span>g</span><span>i</span><span>s</span><span>t</span><span>e</span><span>r</span>
+                                </button>		
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+            <div style="text-align: center;">
+                <form action="./upload.php" method="post" enctype="multipart/form-data">
+                    <a class="file_input" data-jfiler-name="files" data-jfiler-extensions="jpg, jpeg, png, gif">
+                        <i class=""></i>Attach a file</a>
+                    <br>
+                    <input class="button button--nina button--text-thick button--text-upper button--size-m" type="submit" style="padding: 15px 10px 15px 10px;color: #A8A8A8;margin-left: 430px;">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,220 @@
+<!--signup-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Signup to iHeart Fashion</title>
+        <link rel="shortcut icon" href="imgs/ico.png">
+        <link rel="stylesheet" href="css/pageformat.css" /> 
+        <link rel="stylesheet" href="css/fontformat.css" />
+        <link rel="stylesheet" type="text/css" href="css/base.css" /> <!-- button -->
+        <link rel="stylesheet" type="text/css" href="css/buttons.css" /> <!-- button -->
+        <link rel="stylesheet" href="css/set2.css"> <!-- text field -->
+    </head>
+    <script type="text/javascript">
+        function clear() {
+            document.getElementById("input-12").value = "";
+            document.getElementById("input-13").value = "";
+            document.getElementById("input-17").value = "";
+            document.getElementById("input-18").value = "";
+            document.getElementById("input-19").value = "";
+            document.getElementById("input-20").value = "";
+            document.getElementById("input-2").value = "";
+            document.getElementById("input-21").value = "";
+            document.getElementById("input-22").value = "";
+            document.getElementById("input-23").value = "";
+        }
+
+        function showHint(str) {
+            if (str.length == 0) {
+                document.getElementById("txtHint").innerHTML = "";
+                return;
+            } else {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function () {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+                    }
+                }
+                xmlhttp.open("GET", "gethint.php?q=" + str, true);
+                xmlhttp.send();
+            }
+        }
+    </script>
+    <body onload="clear()">
+        <div style="padding-left: 10%;">
+            <img src="imgs/Capture2.JPG" width="389" height="100" alt="Capture2"/>
+        </div>
+        <br>
+        <div class="alignc" style="padding-left: 5%;">
+            <form method="POST" action="Signup.php">
+                <table style="width: 80%;">
+                    <tr>
+                        <td colspan="2">
+                            <div class="mainHeading">Signup to iHeart Fashion</div>
+                        </td>
+                    </tr>
+
+                    <tr class="alignc">
+                        <td colspan="2" >
+                            <span class="input input--manami">
+                                <input class="input__field input__field--manami" type="text" id="input-12" name="fname" />
+                                <label class="input__label input__label--manami" for="input-12">
+                                    <span class="input__label-content input__label-content--manami">First Name</span>
+                                </label>
+                            </span>
+                        </td>
+                    </tr>
+
+                    <tr class="alignc">
+                        <td colspan="2" >
+                            <span class="input input--manami">
+                                <input class="input__field input__field--manami" type="text" id="input-13" name="lname"/>
+                                <label class="input__label input__label--manami" for="input-13">
+                                    <span class="input__label-content input__label-content--manami">Last Name</span>
+                                </label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="alignc">
+                        <td colspan="2">
+
+                            <label class="input__label--manamigen input__field2" for="input-14">
+                                <span class="">Gender</span>
+                            </label>
+                            <span class="inputradio radio-input">
+                                Female<input type="radio" name="gender" value="Female" style="margin-right: 60px;" id="radiof" checked>
+                                Male<input type="radio" name="gender" value="Male" style="margin-right: -40px;text-align: right;" id="radiom">                                      
+                            </span>
+                            <br>
+                        </td>
+                    </tr>
+
+
+                    <tr class="alignc">
+                        <td colspan="2" >
+                            <span class="input input--manami">
+                                <input class="input__field input__field--manami" type="text" id="input-17" name="tel"/>
+                                <label class="input__label input__label--manami" for="input-17">
+                                    <span class="input__label-content input__label-content--manami">Telephone Number</span>
+                                </label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="alignc">
+                        <td colspan="2" >
+                            <span class="input input--manami">
+                                <input class="input__field input__field--manami" type="text" id="input-18" name="address"/>
+                                <label class="input__label input__label--manami" for="input-18">
+                                    <span class="input__label-content input__label-content--manami">Address</span>
+                                </label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="alignc">
+                        <td colspan="2" >
+                            <span class="input input--manami">
+                                <input class="input__field input__field--manami" type="text" id="input-19" name="province"/>
+                                <label class="input__label input__label--manami" for="input-19">
+                                    <span class="input__label-content input__label-content--manami">Province</span>
+                                </label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="alignc">
+                        <td colspan="2" >
+                            <span class="input input--manami">
+                                <input class="input__field input__field--manami" type="text" id="input-20" name="city" />
+                                <label class="input__label input__label--manami" for="input-20">
+                                    <span class="input__label-content input__label-content--manami">City</span>
+                                </label>
+                            </span>
+                            <br><br>
+                        </td>
+                    </tr>
+
+                    <tr class="alignc">
+                        <td colspan="2" >
+                            <span class="input input--manami">
+                                <select class="input__field input__field--manami" name="question" id="question" style = "width: 350px;">
+                                    <option value="1">What is your first phone number?</option>
+                                    <option value="2">What is the name of your dog?</option>
+                                    <option value="3">Who is your favourite teacher?</option>
+                                    <option value="4">What is your favourite colour?</option>
+                                </select>
+                                <label class="input__label input__label--manami" for="input-2">
+                                    <span class="input__label-content input__label-content--manami">Security Question</span>
+                                </label>
+                            </span>
+                        </td>
+                    </tr>
+
+
+                    <tr class="alignc">
+                        <td colspan="2" >
+                            <span class="input input--manami">
+                                <input class="input__field input__field--manami" type="text" id="answer" name="answer" />
+                                <label class="input__label input__label--manami" for="input-2">
+                                    <span class="input__label-content input__label-content--manami">Answer</span>
+                                </label>
+                            </span>
+                        </td>
+                    </tr>
+
+                    <tr class="alignc">
+                        <td colspan="2" >
+                            <span class="input input--manami">
+                                <input class="input__field input__field--manami" type="text" id="input-21" name="email" />
+                                <label class="input__label input__label--manami" for="input-21">
+                                    <span class="input__label-content input__label-content--manami">Email</span>
+                                </label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="alignc">
+                        <td colspan="2">
+                            <span class="input input--manami">
+                                <input class="input__field input__field--manami" type="password" id="input-22" name="pw1" />
+                                <label class="input__label input__label--manami" for="input-22">
+                                    <span class="input__label-content input__label-content--manami">Create a Password</span>
+                                </label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="alignc">
+                        <td colspan="2">
+                            <span class="input input--manami">
+                                <input class="input__field input__field--manami" type="password" id="input-23" name="pw2" />
+                                <label class="input__label input__label--manami" for="input-23">
+                                    <span class="input__label-content input__label-content--manami">Confirm Password</span>
+                                </label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">				
+                            <div class="alignc" style="text-align: center;">
+                                <img src="img/captcha.png" alt="captchaImage"/></div>
+                            <br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="alignc"> 
+                                <textarea  class="alignc" name ="captcha" rows = "3" cols = "40" style="font-size: 14px;"></textarea>                                
+                            </div>
+                        </td>	
+                    </tr>
+                    <tr>
+                        <td class="alignc" colspan="2">
+                            <div class="box bg-1 alignc" style="background: #000;">
+                                <button type="submit" class="button button--nina button--text-thick button--text-upper button--size-s" data-text="Sign Up">
+                                    <span>S</span><span>i</span><span>g</span><span>n</span> <span>U</span><span>p</span>
+                                </button>		
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>

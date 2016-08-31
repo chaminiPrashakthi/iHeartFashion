@@ -1,0 +1,137 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Login to iHeart Fashion</title>
+        <link rel="shortcut icon" href="imgs/ico.png">
+        <link rel="stylesheet" href="css/pageformat.css" /> 
+        <link rel="stylesheet" href="css/fontformat.css" />
+        <link rel="stylesheet" type="text/css" href="css/base.css" /> <!-- button -->
+        <link rel="stylesheet" type="text/css" href="css/buttons.css" /> <!-- button -->
+        <link rel="stylesheet" href="css/set2.css"> <!-- text field -->
+    </head>
+    <script type="text/javascript">
+        function afterType(id) {
+            var textInput = document.getElementById(id);
+            var timeout = null;
+
+            textInput.onkeyup = function (e) {
+
+                clearTimeout(timeout);
+
+                timeout = setTimeout(function () {
+                    validate(textInput.value, id);
+                }, 500);
+            };
+        }
+
+        function validate(value, id) {
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                    if (xmlhttp.responseText === '1') {
+                        document.getElementById("img1").src = "imgs/tick1.png";
+                    }
+                    else if (xmlhttp.responseText === '2') {
+                        document.getElementById("img1").src = "imgs/crs1.png";
+                    }
+                    else if (xmlhttp.responseText === '3') {
+                        document.getElementById("img2").src = "imgs/tick1.png";
+                    }
+                    else if (xmlhttp.responseText === '4') {
+                        document.getElementById("img2").src = "imgs/crs1.png";
+                    }
+                }
+            }
+            xmlhttp.open("POST", "Login.php", true);
+            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xmlhttp.send("value=" + value + "&id=" + id);
+        }
+
+    </script>
+    <body>
+        <div style="padding-left: 10%;"><img src="imgs/Capture2.JPG" width="389" height="100" alt="Capture2"/>
+        </div>
+        <br>
+        <table class="pagetable">
+            <tr class="alignc">
+                <td style="width: 50%;padding-left: 10%;padding-top: 20px;">
+                    <div>
+                        <img src="imgs/typing.png" width="536" height="352" alt="typing"/>
+                    </div>
+                </td>
+                <td class="alignc"> 
+                    <div class="alignc" style="padding-left: 5%;">
+                        <form action="Login_new.php" method="POST">
+                            <table style="width: 80%;">
+                                <tr>
+                                    <td colspan="3">
+                                        <div class="mainHeading">Login to iHeart Fashion</div>
+                                    </td>
+                                </tr>
+                                <tr class="alignc">
+                                    <td colspan="2" >
+                                        <span class="input input--manami">
+                                            <input class="input__field input__field--manami" name="username" type="text" id="input-32" onkeydown="afterType(this.id)" />
+                                            <label class="input__label input__label--manami" for="input-32">
+                                                <span class="input__label-content input__label-content--manami">Username</span>
+                                            </label>
+                                        </span>
+                                    </td>
+                                    <td style="width: 5%;">
+                                        <img src="" id="img1" alt="" style="padding-left: -10px;"/>
+                                    </td>
+                                </tr>
+                                <tr class="alignc">
+                                    <td colspan="2">
+                                        <span class="input input--manami">
+                                            <input class="input__field input__field--manami" name="pass" type="password" id="input-33" onkeydown="afterType(this.id)"/>
+                                            <label class="input__label input__label--manami" for="input-33">
+                                                <span class="input__label-content input__label-content--manami">Password</span>
+                                            </label>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <img src="" id="img2" alt=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="height: 10px;"></td>
+                                </tr>
+                                <tr>
+                                    <td class="subHeader" style="color: rgb(48,48,231);padding-left: 8%;"><a href="index.php" style="text-decoration:none;">Forgot your password ?</a></td>
+                                    <td  class="subHeader" style="color: #191919;padding-right: 10%;"><input type="checkbox" name="loggedin" value="loggedin"> Keep me logged in</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="height: 10px;"></td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: left;">
+                                        <div class="box bg-1" style="padding-left: 24%;">
+                                            <button type="submit" class="button button--nina button--text-thick button--text-upper button--size-s" data-text="Login">
+                                                <span>L</span><span>o</span><span>g</span><span>i</span><span>n</span>
+                                            </button>		
+                                        </div>
+                                    </td>
+                                    <td style="text-align: right;">
+                                        <div class="box bg-1" style="padding-left: 15%;">
+                                            <button type="submit" class="button button--nina button--text-thick button--text-upper button--size-s" data-text="Sign Up">
+                                                <span>S</span><span>i</span><span>g</span><span>n</span> <span>U</span><span>p</span>
+                                            </button>		
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+    </body>
+</html>
